@@ -1,4 +1,4 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 
 # UPDATING SYSYTEM CLOCK
 timedatectl
@@ -26,6 +26,7 @@ n
 
 
 w
+q
 EOF 
 
 # FORMATTING THE SYSTEM
