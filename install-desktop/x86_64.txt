@@ -1,0 +1,7 @@
+sddm
+qt5-quickcontrols2
+archnoob-theme
+alacritty
+archnoob-alacritty
+starship
+archnoob-starship

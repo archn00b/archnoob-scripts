@@ -1,0 +1,70 @@
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+# DECORATING THE WINDOW
+[window]
+decorations = "Full"
+padding = { x = 8, y = 0 }
+blur = true
+decorations_theme_variant = "None"
+opacity = 0.95
+
+# WINDOW ANIMATION
+[bell]
+animation = "EaseOut" #EXPERIMENT
+duration = 5 # EXPERIMENT 
+
+# SCROLLING HISTORY
+[scrolling]
+history = 5000
+
+# SETTING CURSOR
+[cursor]
+style = "Underline"
+
+
+# SETTING TERMINAL
+[terminal]
+osc52 = "CopyPaste"
+
+# MOUSE SETTINGS
+[mouse]
+hide_when_typing = true # EXPIRMENT
+
+# SETTING SELECTION
+[selection]
+save_to_clipboard = true
+
+# SETTING THE FONT
+[font]
+normal = { family = "monospace", style = "Bold" }
+size = 12
+offset = { x = 0, y = 0 }
+builtin_box_drawing = true # EXPIREMENT
+
+[colors.bright]
+black = "#545454"
+blue = "#94bff3"
+cyan = "#93e0e3"
+green = "#8ae234"
+magenta = "#b294bb"
+red = "#fc5454"
+white = "#ffffff"
+yellow = "#fce94f"
+
+[colors.normal]
+black = "#3f3f3f"
+blue = "#94bff3"
+cyan = "#06989a"
+green = "#4e9a06"
+magenta = "#85678f"
+red = "#cc0000"
+white = "#dcdccc"
+yellow = "#c4a000"
+
+[colors.primary]
+background = "#222222"
+foreground = "#F9F9F9"
+
+
+
