@@ -1,41 +1,33 @@
-#!/usr/bin/env bash 
-#set -e
-##################################################################################################################
-# Author    : ArchNoob 
-# Website   : https://www.github.com/ArchN00b
-##################################################################################################################
-# ITS ALL IN YOUR HANDS. READ SCRIPT & OBSERVE. 
-##################################################################################################################
-#tput setaf 0 = black
-#tput setaf 1 = red
-#tput setaf 2 = green
-#tput setaf 3 = yellow
-#tput setaf 4 = dark blue
-#tput setaf 5 = purple
-#tput setaf 6 = cyan
-#tput setaf 7 = gray
-#tput setaf 8 = light blue
-##################################################################################################################
-# Setting script PATH 
-installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
-##################################################################################################################
+#!/usr/bin/env bash
 
-bold=$(tput setaf 2 bold)      # makes text bold and sets color to 2
-bolderror=$(tput setaf 3 bold) # makes text bold and sets color to 3
-normal=$(tput sgr0)            # resets text settings back to normal
+# Author: ArchNoob
+# Website: https://www.github.com/ArchN00b
 
-# ADDING ARCHN00B CORE-REPO TO /ETC/PACMAN.CONF
-sudo pacman -Syu --noconfirm
+# Setting script PATH
+installed_dir=$(dirname "$(readlink -f "$(basename "$(pwd)")")")
 
-addrepo() { \ 
-    # Adding Archn00B core-repo to pacman.conf
-    printf "%s\033[34m Adding [core-repo] to /etc/pacman.conf"
-    grep -qxF "[core-repo]" /etc/pacman.conf ||
-        ( echo " "; echo "[core-repo]"; echo "SigLevel = Optional TrustAll"; \
-        echo "Server = https://archn00b.github.io/\$repo/\$arch") | sudo tee -a /etc/pacman.conf
+# Text formatting
+bold=$(tput setaf 2 bold)
+bolderror=$(tput setaf 3 bold)
+normal=$(tput sgr0)
+
+# Function to add ArchN00B core-repo to /etc/pacman.conf
+add_repo() {
+    printf "%s\n" "${bold}Adding [core-repo] to /etc/pacman.conf...${normal}"
+
+    if ! grep -qxF "[core-repo]" /etc/pacman.conf; then
+        {
+            echo ""
+            echo "[core-repo]"
+            echo "SigLevel = Optional TrustAll"
+            echo "Server = https://archn00b.github.io/\$repo/\$arch"
+        } | sudo tee -a /etc/pacman.conf
+    fi
 }
 
-addrepo || error "Error adding ArchN00B repo to /etc/pacman.conf."
+# Update system and install necessary packages
+sudo pacman -Syu --noconfirm
+add_repo || { echo "${bolderror}Error adding ArchN00B repo to /etc/pacman.conf.${normal}"; exit 1; }
 
-# SYNCING THE REPOSITORIES
+# Syncing the repositories
 sudo pacman -Syy --noconfirm

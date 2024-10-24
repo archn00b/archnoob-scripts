@@ -42,7 +42,7 @@ logfile="/var/log/install_packages.log"
 packages=("alacritty" "vim" "firefox") # use double quotes maintaing package name
 
 # CHECK IF PACKAGE IS ALREADY INSTALLED
-pgk_is_installed() {
+check_pkg() {
 	pacman -Qi "$1" &> /dev/null
 }
 
@@ -50,7 +50,7 @@ pgk_is_installed() {
 install_packages() {
 	echo "Installing packages..." | tee -a $logfile
 	for pkg in "${packages[@]}"; do
-	    if pgk_is_installed "$pkg"; then
+	    if check_pkg "$pkg"; then
 		   tput setaf 1
 	       echo "$pkg is already installed." | tee -a $logfile
 		   echo ""
@@ -58,7 +58,7 @@ install_packages() {
 	else
 	       echo "Installing $pkg..." | tee -a $logfile
 	       sudo pacman -S --noconfirm --needed "$pkg" # | tee -a >> $logfile 2>&1
-	       if [ $? -eq 0 ]; then
+	       if ! install_packages; then
 		   echo "$pkg installed successfully" | tee -a $logfile
 	       else
 		   echo "Error installing $pkg..." | tee -a $logfile
@@ -69,14 +69,9 @@ install_packages() {
 
 # INSTALLATION PROCESS MAIN FUNCTION
 main() {
-    # Confirm installation
-    # Install packages
-    install_packages
-
+    check_pkg
     echo "Package installation complete." | tee -a $logfile
 }
-
-# Execute main function
 main
     
 	       

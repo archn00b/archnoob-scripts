@@ -1,147 +1,104 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 #set -e
 ##################################################################################################################
 # Author    : ArchNoob 
 # Website   : https://www.github.com/ArchN00b
 ##################################################################################################################
-### ITS ALL IN YOUR HANDS. PLEASE READ SCRIPT SO YOU KNOW WHATS BEING INSTALLED. REBOOT AFTER INSTALL            #
+# PLEASE READ SCRIPT TO KNOW WHAT'S BEING INSTALLED. REBOOT AFTER INSTALL.                                      #
 ##################################################################################################################
-#tput setaf 0 = black
-#tput setaf 1 = red
-#tput setaf 2 = green
-#tput setaf 3 = yellow
-#tput setaf 4 = dark blue
-#tput setaf 5 = purple
-#tput setaf 6 = cyan
-#tput setaf 7 = gray
-#tput setaf 8 = light blue
-##################################################################################################################
+
 # Setting script PATH 
-installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
-##################################################################################################################
+installed_dir=$(dirname "$(readlink -f "$(basename "$(pwd)")")")
 
 # ADDING ARCHN00B CORE-REPO TO /ETC/PACMAN.CONF
 sudo pacman -Syu
 
-addrepo() { \
-    printf "%s\n" "## Adding repositories to /etc/pacman.conf."
-
-    # Adding Archn00B core-repo to pacman.conf
-    printf "%s" "Adding repo " && printf "%s" "${bold}[core-repo] " && printf "%s\n" "${normal}to /etc/pacman.conf."
-    grep -qxF "[core-repo]" /etc/pacman.conf ||
-        ( echo " "; echo "[core-repo]"; echo "SigLevel = Optional TrustAll"; \
-        echo "Server = https://archn00b.github.io/\$repo/\$arch") | sudo tee -a /etc/pacman.conf
+add_repo() {
+    echo "## Adding repositories to /etc/pacman.conf."
+    
+    if ! grep -qxF "[core-repo]" /etc/pacman.conf; then
+        echo "[core-repo]" | sudo tee -a /etc/pacman.conf
+        echo "SigLevel = Optional TrustAll" | sudo tee -a /etc/pacman.conf
+        echo "Server = https://archn00b.github.io/\$repo/\$arch" | sudo tee -a /etc/pacman.conf
+    fi
 }
 
-addrepo || error "Error adding ArchN00B repo to /etc/pacman.conf."
+add_repo
 
-# INSTALLING PKG'S FOR DESKTOP ENVIORMENT
-
+# INSTALLING PKG'S FOR DESKTOP ENVIRONMENT
 file="x86_64.txt"
 
-for pkg in $(awk '{print $1}' $file)
-do
-	if pacman -Qi $pkg &> /dev/null; then
-        tput setaf 1
-        echo "#################################################################"
-        echo "######### $pkg already installed. "
-        echo "#################################################################"
-        echo
-        tput sgr0
+while read -r pkg; do
+    if pacman -Qi "$pkg" &>/dev/null; then
+        echo -e "\e[31m#################################################################\n######### $pkg already installed.\n#################################################################\e[0m"
     else
-        tput setaf 3
-        echo "#################################################################"
-        echo "######### $pkg is being installed. "
-        echo "#################################################################"
-        sudo pacman -Syu --noconfirm --needed $pkg
-        echo
-        tput sgr0        
+        echo -e "\e[33m#################################################################\n######### Installing $pkg...\n#################################################################\e[0m"
+        sudo pacman -Syu --noconfirm --needed "$pkg"
     fi
-done
+done < <(awk '{print $1}' "$file")
 
-# INSTALLING SDDM AND DEPENDICIES 
-sudo pacman -S sddm qt5-quickcontrols2 archnoob-sddm-theme
+# INSTALLING SDDM AND DEPENDENCIES 
+sudo pacman -S --noconfirm sddm qt5-quickcontrols2 archnoob-sddm-theme
 
-# MAKING SDDM DEFAULT DISPLAY MANAGER
-# Disable the current login manager
-sudo systemctl disable "$(grep '/usr/s\?bin' /etc/systemd/system/display-manager.service | awk -F / '{print $NF}')" || echo "Cannot disable current display manager."
-# Enable sddm as login manager
+# MAKE SDDM DEFAULT DISPLAY MANAGER
+current_manager=$(grep '/usr/s\?bin' /etc/systemd/system/display-manager.service | awk -F / '{print $NF}')
+if [ -n "$current_manager" ]; then
+    sudo systemctl disable "$current_manager" || echo "Cannot disable current display manager."
+fi
+
 sudo systemctl enable sddm
-printf "%s\n" "Enabling and configuring ${bold}SDDM ${normal}as the login manager."
+echo "Enabling and configuring SDDM as the login manager."
 
-## Make archnoob-sddm-theme the default sddm theme ##
-# This is the sddm system configuration file.
-[ -f "/usr/lib/sddm/sddm.conf.d/default.conf" ] && \
-    sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /usr/lib/sddm/sddm.conf.d/archnoobtheme.conf && \
-    [ -d "/etc/sddm.conf.d/" ] || sudo mkdir -p /etc/sddm.conf.d/ && \
-    [ -f "/usr/lib/sddm/sddm.conf.d/archnoobtheme.conf" ] && \
-    sudo mv /usr/lib/sddm/sddm.conf.d/archnoobtheme.conf /etc/sddm.conf.d/ && \
-    sudo sed -i 's/^Current=*.*/Current=archnoobtheme/g' /etc/sddm.conf.d/archnoobtheme.conf
+# CONFIGURE SDDM THEME
+if [ -f "/usr/lib/sddm/sddm.conf.d/default.conf" ]; then
+    sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /usr/lib/sddm/sddm.conf.d/archnoobtheme.conf
+    [ ! -d "/etc/sddm.conf.d/" ] && sudo mkdir -p /etc/sddm.conf.d/
+    
+    if [ -f "/usr/lib/sddm/sddm.conf.d/archnoobtheme.conf" ]; then
+        sudo mv /usr/lib/sddm/sddm.conf.d/archnoobtheme.conf /etc/sddm.conf.d/
+        sudo sed -i 's/^Current=.*/Current=archnoobtheme/' /etc/sddm.conf.d/archnoobtheme.conf
+    fi
+fi
 
 echo "#####################################"
 echo "####### SDDM HAS BEEN INSTALLED "
 echo "#####################################"
 
 # INSTALL ALACRITTY TERMINAL WITH THEME
-[ -d $HOME/.config/alacritty/ ] || mkdir -p $HOME/.config/alacrity/ && \
-[ -d $HOME/.conf/alacritty/ ] && sudo cp -r /etc/skel/.config/alacritty/alacritty.toml $HOME/.config/alacritty/
+mkdir -p "$HOME/.config/alacritty/"
+sudo cp -r /etc/skel/.config/alacritty/alacritty.toml "$HOME/.config/alacritty/" 2>/dev/null
 
 # INSTALLING STARSHIP
+echo "Installing Starship." 
+mkdir -p "$HOME/.config/"
+sudo cp -r /etc/skel/.config/starship.toml "$HOME/.config/"
 
-printf "%s\n" " Installing Starship." 
-
-[ -d $HOME/.config/ ] && sudo cp -r /etc/skel/.config/starship.toml $HOME/.config/
-[ -f ~/.bashrc ] && cp  ~/.bashrc ~/.bashrc.bak."$(date +"%Y%m%d_%H%M%S")"
-[ -f ~/.bashrc ] && \
-echo '
-#including starship
-eval "$(starship init bash)" ' >> ~/.bashrc && source ~/.bashrc
-sleep 3
+if [ -f ~/.bashrc ]; then
+    cp ~/.bashrc ~/.bashrc.bak."$(date +"%Y%m%d_%H%M%S")"
+    echo 'eval "$(starship init bash)"' >> ~/.bashrc
+    source ~/.bashrc
+fi
 
 # INSTALLING ICON THEME
 git clone https://github.com/L4ki/Magna-Plasma-Themes.git
 sudo mv Magna-Plasma-Themes/'Magna Icons Themes'/Magna-Dark-Icons /usr/share/icons/
-sudo rm -rf Magna-Plasma-Themes
-sleep 1
+rm -rf Magna-Plasma-Themes
 
 # USING XFCONF-QUERY TO ADJUST DEFAULT THEME
-icon=/Net/IconThemeName
-iconname="Magna-Dark-Icons"                                
-
-xfconf-query -c xsettings -p $icon -s $iconname
-
-# CHANGING THE DEFAULT THEME ON XFCE4 USING XFCONF-QUERY
-theme=/Net/ThemeName
-themename="Adwaita-dark"                  
-
-xfconf-query -c xsettings -p $theme -s $themename
+xfconf-query -c xsettings -p /Net/IconThemeName -s "Magna-Dark-Icons"
+xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
 
 # SETTING DEFAULT BACKGROUND
 git clone https://github.com/archn00b/wallpapers.git
-rm -rf wallpapers/.git
-rm -rf wallpapers/pushit2git.sh
-cp -r wallpapers/* /usr/share/backgrounds/xfce/
+rm -rf wallpapers/.git wallpapers/pushit2git.sh
+sudo cp -r wallpapers/* /usr/share/backgrounds/xfce/
 rm -rf wallpapers
-# CHANNEL THAT NEEDS TO BE CHANGED
-bgpath=/backdrop/screen0/monitorDP-4/workspace0/last-image
-
-# PATH TO BACKGROUND IMAGE 
-bg=/usr/share/backgrounds/xfce/bg3.jpg
 
 # COMMAND TO SET BACKGROUND
-xfconf-query -c xfce4-desktop -p $bgpath -s $bg 
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorDP-4/workspace0/last-image -s /usr/share/backgrounds/xfce/bg3.jpg
 
 echo "##########################################"
-echo "##### INSTALLATION DONE REBOOTING "
+echo "##### INSTALLATION DONE, REBOOTING... #####"
 echo "##########################################"
 sleep 5
-reboot 
-
-
-
-
-
-
-
-
- 
+reboot

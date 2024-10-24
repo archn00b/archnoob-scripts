@@ -32,26 +32,46 @@ set -euo pipefail
 
 ROOT_UID=0     # Only users with $UID 0 have root privileges.
 E_NOTROOT=87   # Non-root exit error.
+LOG_FILE="/var/log/wipe_signatures.log"
 
-# Run as root, of course.
-check_root(){
-  if [ "$UID" -ne "$ROOT_UID" ]
-     then
-     tput setaf 1
-     echo "###################################"
-     echo "Must be root to run this script."
-     echo "###################################"
-     tput sgr0
-     echo ""
-     exit $E_NOTROOT
- fi
+# Function to log messages
+log() {
+  local message="$1"
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$LOG_FILE"
 }
 
-main(){
+# Function to check if the script is run as root
+check_root() {
+  if [ "$UID" -ne "$ROOT_UID" ]; then
+    log "ERROR: Must be root to run this script."
+    echo -e "\e[31m###################################\e[0m"
+    echo -e "\e[31mMust be root to run this script.\e[0m"
+    echo -e "\e[31m###################################\e[0m"
+    exit $E_NOTROOT
+  fi
+}
+
+# Function to wipe all signatures on specified devices
+wipe_signatures() {
+  local devices=( "/dev/sda3" "/dev/sda2" "/dev/sda1" "/dev/sda" )
+  local types=( "ext4" "swap" "vfat" "all" )
+
+  for i in "${!devices[@]}"; do
+    if wipefs --all "${devices[i]}" 2>> "$LOG_FILE"; then
+      log "Successfully wiped signatures on ${devices[i]}."
+    else
+      log "ERROR: Failed to wipe signatures on ${devices[i]}."
+    fi
+  done
+}
+
+# Main function
+main() {
   check_root
+  log "Script started."
+  wipe_signatures
+  log "Script completed."
 }
 
+# Execute main function
 main
-
-
-
