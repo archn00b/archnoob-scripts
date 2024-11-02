@@ -19,7 +19,7 @@
 ####################################################################################################################################################
 
 # printing to the screen using color
-printf "\033[34mCHECKING FOR UPDATED FILES ONE REPO\033[m\n"
+printf "\033[34mCHECKING FOR UPDATED FILES ON REPO\033[m\n"
 
 # Checking for updated files on repo
 git pull
