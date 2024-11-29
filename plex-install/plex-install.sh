@@ -28,7 +28,8 @@ sudo systemctl enable --now snapd.socket
 
 # ADD /bin/snap to ENVVIORMENT
 echo "export PATH=\$PATH:/snap/bin" >> ~/.bashrc
-source ~/.bashrc
+# shellcheck disable=SC1090
+source ~/.bashrc 
 
 # NOW WE NEED FFMPEG6.1 THIS WILL TAKE AWHILE TO INSTALL
 sudo yay -S ffmpeg6.1 --noconfirm
