@@ -19,8 +19,8 @@
 #tput setaf 8 = light blue
 ##################################################################################################################
 
-email=""
-username=""
+email="archnoob@gmail.com"
+username="archnoob"
 git config --global credential.helper store
 git config --global user.email "$email"
 git config --global user.name "$username"
