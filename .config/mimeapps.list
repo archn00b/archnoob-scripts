@@ -1,0 +1,27 @@
+[Default Applications]
+application/x-shellscript=code-oss.desktop
+application/x-zerosize=code-oss.desktop
+text/plain=code-oss.desktop
+application/octet-stream=code-oss.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+application/x-genesis-rom=code-oss.desktop
+application/x-bittorrent=transmission-gtk.desktop
+application/vnd.nintendo.snes.rom=org.libretro.RetroArch.desktop
+
+[Added Associations]
+application/x-shellscript=sublime_text.desktop;nvim.desktop;code-oss.desktop;
+application/x-zerosize=code-oss.desktop;
+text/plain=sublime_text.desktop;code-oss.desktop;
+application/xml=sublime_text.desktop;code-oss.desktop;
+application/octet-stream=code-oss.desktop;
+application/x-genesis-rom=code-oss.desktop;
+application/pdf=org.gnome.Evince.desktop;google-chrome.desktop;
+video/mp4=vlc.desktop;
+application/x-bittorrent=transmission-gtk.desktop;
+application/zip=xarchiver.desktop;
+application/vnd.nintendo.snes.rom=org.libretro.RetroArch.desktop;
+inode/directory=vlc.desktop;
