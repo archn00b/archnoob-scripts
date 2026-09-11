@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #set -e
 ##################################################################################################################
-# Author    : ArchNoob 
-# Website   : https://www.github.com/ArchN00b
+# Author    : ArchNoob                                                                                           #
+# Website   : https://www.github.com/ArchN00b                                                                    #
 ##################################################################################################################
-# PLEASE READ SCRIPT TO KNOW WHAT'S BEING INSTALLED. REBOOT AFTER INSTALL.                                      #
+# PLEASE READ SCRIPT TO KNOW WHAT'S BEING INSTALLED. REBOOT AFTER INSTALL.                                       #
 ##################################################################################################################
 
 # Setting script PATH 
@@ -30,9 +30,9 @@ file="x86_64.txt"
 
 while read -r pkg; do
     if pacman -Qi "$pkg" &>/dev/null; then
-        echo -e "\e[31m#################################################################\n######### $pkg already installed.\n#################################################################\e[0m"
+        echo -e "\e[31m#################################################################\n######### $pkg already installed.\n###########\e[0m"
     else
-        echo -e "\e[33m#################################################################\n######### Installing $pkg...\n#################################################################\e[0m"
+        echo -e "\e[33m#################################################################\n######### Installing $pkg...\n################\e[0m"
         sudo pacman -Syu --noconfirm --needed "$pkg"
     fi
 done < <(awk '{print $1}' "$file")
