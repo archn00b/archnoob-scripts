@@ -1,0 +1,820 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+######################################################################
+# Author     : ArchN00B
+# Website    : https://www.github.com/archn00b
+######################################################################
+#
+#   ITS ALL IN YOUR HANDS. READ & OBSERVE SCRIPT ESPECIALLY COMMENTS
+#
+######################################################################
+
+# tput setaf 0 = black
+# tput setaf 1 = red
+# tput setaf 2 = green
+# tput setaf 3 = yellow
+# tput setaf 4 = dark blue
+# tput setaf 5 = purple
+# tput setaf 6 = cyan
+# tput setaf 7 = gray
+# tput setaf 8 = light blue
+# tput sgr0    = default
+#####################################################################
+
+
+E_NOTROOT=87
+
+
+# ------------------------------------------------------------------------------------------------
+# ROOT CHECK
+# ------------------------------------------------------------------------------------------------
+
+if [[ "$UID" -ne 0 ]]; then
+
+    tput setaf 1
+
+    echo "###################################"
+    echo "Must be root to run this script."
+    echo "###################################"
+
+    tput sgr0
+
+    echo ""
+
+    echo "Run this script with:"
+    echo ""
+    echo "    sudo ./install.sh"
+    echo ""
+
+    exit "$E_NOTROOT"
+
+fi
+
+
+# ------------------------------------------------------------------------------------------------
+# SCRIPT DIRECTORY
+# ------------------------------------------------------------------------------------------------
+#
+# All files used by this script are expected to be located
+# in the same directory as this script.
+#
+# Example:
+#
+#   install.sh
+#   starship.toml
+#   FiraCode/
+#       *.ttf
+#
+# ------------------------------------------------------------------------------------------------
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+
+# ------------------------------------------------------------------------------------------------
+# VARIABLES
+# ------------------------------------------------------------------------------------------------
+
+logfile="/var/log/archnoob-terminal-install.log"
+
+packages=(
+    alacritty
+    archnoob-alacritty
+    starship
+    lsd
+)
+
+
+# ------------------------------------------------------------------------------------------------
+# DETERMINE NORMAL USER
+# ------------------------------------------------------------------------------------------------
+
+if [[ -n "${SUDO_USER:-}" && "$SUDO_USER" != "root" ]]; then
+
+    REAL_USER="$SUDO_USER"
+
+else
+
+    REAL_USER=$(logname 2>/dev/null || true)
+
+fi
+
+
+# ------------------------------------------------------------------------------------------------
+# CHECK USER
+# ------------------------------------------------------------------------------------------------
+
+if [[ -z "$REAL_USER" || "$REAL_USER" == "root" ]]; then
+
+    tput setaf 1
+
+    echo "Could not determine the normal user."
+    echo ""
+    echo "Run this script with:"
+    echo ""
+    echo "    sudo ./install.sh"
+
+    tput sgr0
+
+    exit 1
+
+fi
+
+
+# ------------------------------------------------------------------------------------------------
+# GET USER HOME DIRECTORY
+# ------------------------------------------------------------------------------------------------
+
+USER_HOME=$(getent passwd "$REAL_USER" | cut -d: -f6)
+
+if [[ -z "$USER_HOME" || ! -d "$USER_HOME" ]]; then
+
+    tput setaf 1
+
+    echo "Could not determine home directory for $REAL_USER."
+
+    tput sgr0
+
+    exit 1
+
+fi
+
+
+# ------------------------------------------------------------------------------------------------
+# LOGGING
+# ------------------------------------------------------------------------------------------------
+
+touch "$logfile"
+
+echo "==================================================" | tee -a "$logfile"
+echo "ArchN00B Terminal Installation" | tee -a "$logfile"
+echo "User : $REAL_USER" | tee -a "$logfile"
+echo "Home : $USER_HOME" | tee -a "$logfile"
+echo "Script: $SCRIPT_DIR" | tee -a "$logfile"
+echo "==================================================" | tee -a "$logfile"
+echo "" | tee -a "$logfile"
+
+
+# ------------------------------------------------------------------------------------------------
+# CHECK PACKAGE
+# ------------------------------------------------------------------------------------------------
+
+check_pkg() {
+
+    pacman -Qi "$1" &>/dev/null
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# INSTALL PACKAGES
+# ------------------------------------------------------------------------------------------------
+
+install_packages() {
+
+    echo "Installing packages..." | tee -a "$logfile"
+    echo ""
+
+    for pkg in "${packages[@]}"; do
+
+        if check_pkg "$pkg"; then
+
+            tput setaf 3
+
+            echo "$pkg is already installed." | tee -a "$logfile"
+
+            tput sgr0
+
+        else
+
+            echo "Installing $pkg..." | tee -a "$logfile"
+
+            if pacman -S --noconfirm --needed "$pkg"; then
+
+                tput setaf 2
+
+                echo "$pkg installed successfully." | tee -a "$logfile"
+
+                tput sgr0
+
+            else
+
+                tput setaf 1
+
+                echo "Error installing $pkg." | tee -a "$logfile"
+
+                tput sgr0
+
+                return 1
+
+            fi
+
+        fi
+
+        echo ""
+
+    done
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# INSTALL FIRACODE
+# ------------------------------------------------------------------------------------------------
+
+install_firacode() {
+
+    echo "Installing FiraCode fonts..." | tee -a "$logfile"
+
+    local font_source="$SCRIPT_DIR/FiraCode"
+    local font_destination="/usr/share/fonts/FiraCode"
+
+
+    if [[ ! -d "$font_source" ]]; then
+
+        tput setaf 3
+
+        echo "FiraCode folder not found:" | tee -a "$logfile"
+        echo "$font_source" | tee -a "$logfile"
+
+        tput sgr0
+
+        return 1
+
+    fi
+
+
+    mkdir -p "$font_destination"
+
+
+    cp -r "$font_source"/. "$font_destination"/
+
+
+    # Font files should be readable by everyone.
+    find "$font_destination" -type f -exec chmod 644 {} \;
+
+
+    # Refresh font cache if fontconfig is available.
+    if command -v fc-cache &>/dev/null; then
+
+        fc-cache -f "$font_destination" | tee -a "$logfile"
+
+    else
+
+        tput setaf 3
+
+        echo "fc-cache was not found. Font cache was not refreshed." | tee -a "$logfile"
+
+        tput sgr0
+
+    fi
+
+
+    tput setaf 2
+
+    echo "FiraCode fonts installed successfully." | tee -a "$logfile"
+
+    tput sgr0
+
+    echo ""
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# INSTALL ALACRITTY CONFIGURATION
+# ------------------------------------------------------------------------------------------------
+
+install_alacritty() {
+
+    echo "Installing Alacritty configuration..." | tee -a "$logfile"
+
+    local config_dir="$USER_HOME/.config/alacritty"
+    local source_file="/etc/skel/.config/alacritty/alacritty.toml"
+    local destination="$config_dir/alacritty.toml"
+
+
+    mkdir -p "$config_dir"
+
+
+    if [[ -f "$source_file" ]]; then
+
+        cp "$source_file" "$destination"
+
+        chown "$REAL_USER:$REAL_USER" "$destination"
+
+        tput setaf 2
+
+        echo "Alacritty configuration installed." | tee -a "$logfile"
+
+        tput sgr0
+
+    else
+
+        tput setaf 3
+
+        echo "Alacritty configuration not found:" | tee -a "$logfile"
+        echo "$source_file" | tee -a "$logfile"
+
+        tput sgr0
+
+    fi
+
+    echo ""
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# INSTALL STARSHIP CONFIGURATION
+# ------------------------------------------------------------------------------------------------
+
+install_starship() {
+
+    echo "Installing Starship configuration..." | tee -a "$logfile"
+
+    local config_dir="$USER_HOME/.config"
+    local source_file="$SCRIPT_DIR/starship.toml"
+    local destination="$config_dir/starship.toml"
+
+
+    mkdir -p "$config_dir"
+
+
+    if [[ -f "$source_file" ]]; then
+
+        cp "$source_file" "$destination"
+
+        chown "$REAL_USER:$REAL_USER" "$destination"
+
+        tput setaf 2
+
+        echo "Starship configuration installed." | tee -a "$logfile"
+        echo "Source      : $source_file" | tee -a "$logfile"
+        echo "Destination : $destination" | tee -a "$logfile"
+
+        tput sgr0
+
+    else
+
+        tput setaf 3
+
+        echo "Starship configuration not found:" | tee -a "$logfile"
+        echo "$source_file" | tee -a "$logfile"
+
+        tput sgr0
+
+    fi
+
+    echo ""
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# BACKUP BASHRC
+# ------------------------------------------------------------------------------------------------
+
+backup_bashrc() {
+
+    local bashrc="$USER_HOME/.bashrc"
+
+
+    echo "Backing up .bashrc..." | tee -a "$logfile"
+
+
+    if [[ -f "$bashrc" ]]; then
+
+        local backup="$USER_HOME/.bashrc.bak.$(date +"%Y%m%d_%H%M%S")"
+
+        cp "$bashrc" "$backup"
+
+        chown "$REAL_USER:$REAL_USER" "$backup"
+
+        tput setaf 2
+
+        echo "Backed up .bashrc:" | tee -a "$logfile"
+        echo "$backup" | tee -a "$logfile"
+
+        tput sgr0
+
+    else
+
+        echo "No existing .bashrc found. No backup required." | tee -a "$logfile"
+
+    fi
+
+    echo ""
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# CONFIGURE STARSHIP IN BASHRC
+# ------------------------------------------------------------------------------------------------
+
+configure_bashrc() {
+
+    local bashrc="$USER_HOME/.bashrc"
+
+
+    echo "Configuring Starship in .bashrc..." | tee -a "$logfile"
+
+
+    if [[ ! -f "$bashrc" ]]; then
+
+        touch "$bashrc"
+
+        chown "$REAL_USER:$REAL_USER" "$bashrc"
+
+        echo "Created .bashrc." | tee -a "$logfile"
+
+    fi
+
+
+    if grep -qxF 'eval "$(starship init bash)"' "$bashrc"; then
+
+        tput setaf 3
+
+        echo "Starship is already configured in .bashrc." | tee -a "$logfile"
+
+        tput sgr0
+
+    else
+
+        echo "" >> "$bashrc"
+        echo "# Initialize Starship" >> "$bashrc"
+        echo 'eval "$(starship init bash)"' >> "$bashrc"
+
+        chown "$REAL_USER:$REAL_USER" "$bashrc"
+
+        tput setaf 2
+
+        echo "Starship added to .bashrc." | tee -a "$logfile"
+
+        tput sgr0
+
+    fi
+
+    echo ""
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# CONFIGURE LSD
+# ------------------------------------------------------------------------------------------------
+
+configure_lsd() {
+
+    local bashrc="$USER_HOME/.bashrc"
+
+
+    echo "Configuring lsd in .bashrc..." | tee -a "$logfile"
+
+
+    if [[ ! -f "$bashrc" ]]; then
+
+        touch "$bashrc"
+
+        chown "$REAL_USER:$REAL_USER" "$bashrc"
+
+    fi
+
+
+    if grep -qxF 'alias ls="lsd -la"' "$bashrc"; then
+
+        tput setaf 3
+
+        echo "ls alias is already configured." | tee -a "$logfile"
+
+        tput sgr0
+
+    else
+
+        echo "" >> "$bashrc"
+        echo "# lsd alias" >> "$bashrc"
+        echo 'alias ls="lsd -la"' >> "$bashrc"
+
+        chown "$REAL_USER:$REAL_USER" "$bashrc"
+
+        tput setaf 2
+
+        echo 'Added alias ls="lsd -la" to .bashrc.' | tee -a "$logfile"
+
+        tput sgr0
+
+    fi
+
+    echo ""
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# SET CONFIGURATION OWNERSHIP
+# ------------------------------------------------------------------------------------------------
+
+set_permissions() {
+
+    echo "Setting configuration ownership..." | tee -a "$logfile"
+
+
+    if [[ -d "$USER_HOME/.config/alacritty" ]]; then
+
+        chown -R "$REAL_USER:$REAL_USER" "$USER_HOME/.config/alacritty"
+
+    fi
+
+
+    if [[ -f "$USER_HOME/.config/starship.toml" ]]; then
+
+        chown "$REAL_USER:$REAL_USER" "$USER_HOME/.config/starship.toml"
+
+    fi
+
+
+    if [[ -f "$USER_HOME/.bashrc" ]]; then
+
+        chown "$REAL_USER:$REAL_USER" "$USER_HOME/.bashrc"
+
+    fi
+
+
+    echo "Ownership configured." | tee -a "$logfile"
+    echo ""
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# VERIFY PACKAGE INSTALLATION
+# ------------------------------------------------------------------------------------------------
+
+verify_packages() {
+
+    echo "Verifying packages..." | tee -a "$logfile"
+
+
+    local failed=0
+
+
+    for pkg in "${packages[@]}"; do
+
+        if check_pkg "$pkg"; then
+
+            tput setaf 2
+            echo "[OK] $pkg" | tee -a "$logfile"
+            tput sgr0
+
+        else
+
+            tput setaf 1
+            echo "[FAILED] $pkg" | tee -a "$logfile"
+            tput sgr0
+
+            failed=1
+
+        fi
+
+    done
+
+
+    echo ""
+
+
+    return "$failed"
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# VERIFY CONFIGURATION
+# ------------------------------------------------------------------------------------------------
+
+verify_installation() {
+
+    echo "Verifying configuration..." | tee -a "$logfile"
+
+    local failed=0
+
+
+    # Starship configuration
+
+    if [[ -f "$USER_HOME/.config/starship.toml" ]]; then
+
+        tput setaf 2
+        echo "[OK] Starship configuration" | tee -a "$logfile"
+        tput sgr0
+
+    else
+
+        tput setaf 1
+        echo "[FAILED] Starship configuration" | tee -a "$logfile"
+        tput sgr0
+
+        failed=1
+
+    fi
+
+
+    # Alacritty configuration
+
+    if [[ -f "$USER_HOME/.config/alacritty/alacritty.toml" ]]; then
+
+        tput setaf 2
+        echo "[OK] Alacritty configuration" | tee -a "$logfile"
+        tput sgr0
+
+    else
+
+        tput setaf 1
+        echo "[FAILED] Alacritty configuration" | tee -a "$logfile"
+        tput sgr0
+
+        failed=1
+
+    fi
+
+
+    # FiraCode
+
+    if [[ -d "/usr/share/fonts/FiraCode" ]] &&
+       find "/usr/share/fonts/FiraCode" -type f \( -name "*.ttf" -o -name "*.otf" \) -print -quit | grep -q .; then
+
+        tput setaf 2
+        echo "[OK] FiraCode fonts" | tee -a "$logfile"
+        tput sgr0
+
+    else
+
+        tput setaf 1
+        echo "[FAILED] FiraCode fonts" | tee -a "$logfile"
+        tput sgr0
+
+        failed=1
+
+    fi
+
+
+    # Starship .bashrc configuration
+
+    if grep -qxF 'eval "$(starship init bash)"' "$USER_HOME/.bashrc"; then
+
+        tput setaf 2
+        echo "[OK] Starship .bashrc configuration" | tee -a "$logfile"
+        tput sgr0
+
+    else
+
+        tput setaf 1
+        echo "[FAILED] Starship .bashrc configuration" | tee -a "$logfile"
+        tput sgr0
+
+        failed=1
+
+    fi
+
+
+    # lsd alias
+
+    if grep -qxF 'alias ls="lsd -la"' "$USER_HOME/.bashrc"; then
+
+        tput setaf 2
+        echo "[OK] lsd alias" | tee -a "$logfile"
+        tput sgr0
+
+    else
+
+        tput setaf 1
+        echo "[FAILED] lsd alias" | tee -a "$logfile"
+        tput sgr0
+
+        failed=1
+
+    fi
+
+
+    echo ""
+
+
+    return "$failed"
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# INSTALL TERMINAL
+# ------------------------------------------------------------------------------------------------
+
+install_terminal() {
+
+    install_firacode
+
+    install_alacritty
+
+    install_starship
+
+    backup_bashrc
+
+    configure_bashrc
+
+    configure_lsd
+
+    set_permissions
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# MAIN
+# ------------------------------------------------------------------------------------------------
+
+main() {
+
+    echo ""
+    echo "Starting ArchN00B terminal installation..."
+    echo ""
+
+
+    # Package installation
+
+    install_packages
+
+
+    echo "Package installation complete." | tee -a "$logfile"
+    echo ""
+
+
+    # Terminal configuration
+
+    install_terminal
+
+
+    echo "Terminal configuration complete." | tee -a "$logfile"
+    echo ""
+
+
+    # Verification
+
+    if ! verify_packages; then
+
+        tput setaf 1
+        echo "Package verification failed." | tee -a "$logfile"
+        tput sgr0
+
+        exit 1
+
+    fi
+
+
+    if ! verify_installation; then
+
+        tput setaf 1
+        echo "Configuration verification failed." | tee -a "$logfile"
+        tput sgr0
+
+        exit 1
+
+    fi
+
+
+    # Final message
+
+    echo ""
+    echo "==================================================" | tee -a "$logfile"
+    echo "ArchN00B Terminal Installation Complete" | tee -a "$logfile"
+    echo "==================================================" | tee -a "$logfile"
+    echo ""
+
+    echo "User : $REAL_USER"
+    echo "Home : $USER_HOME"
+    echo "Log  : $logfile"
+    echo ""
+
+    echo "Installed:"
+    echo "  - Alacritty"
+    echo "  - Starship"
+    echo "  - lsd"
+    echo "  - FiraCode fonts"
+    echo ""
+
+    echo "Configured:"
+    echo "  - ~/.config/starship.toml"
+    echo "  - ~/.config/alacritty/alacritty.toml"
+    echo '  - alias ls="lsd -la"'
+    echo ""
+
+    echo "Restart your terminal or run:"
+    echo ""
+    echo "    source ~/.bashrc"
+    echo ""
+
+}
+
+
+# ------------------------------------------------------------------------------------------------
+# RUN SCRIPT
+# ------------------------------------------------------------------------------------------------
+
+main
