@@ -2,20 +2,27 @@
 set -euo pipefail
 
 
-property="/backdrop/screen0/monitorDP-1/workspace0/last-image"
-bg="/usr/share/backgrounds/xfce/bg3.jpg"
-cp_destination="/usr/share/backgrounds/xfce/"
+
+cp_destination="$HOME/wallpapers/"
 
 change_wallpaper(){
-    git clone https://github.com/archn00b/wallpapers.git
-    sudo cp -rf wallpapers/* "$cp_destination"
-    rm -rf wallpapers
 
-    xfconf-query -c xfce4-desktop -p "$property" -s "$bg"
+    # Open Thunar for previews
+    thunar "$cp_destination" &
+
+    # Select wallpaper
+    wallpaper=$(printf '%s\n' "$cp_destination"/*.jpg | fzf --prompt="Select wallpaper: ")
+
+    # Set wallpaper on every connected monitor
+    while read -r monitor; do
+        property="/backdrop/screen0/monitor${monitor}/workspace0/last-image"
+
+        xfconf-query -c xfce4-desktop -p "$property" -s "$wallpaper"
+    done < <(xrandr --query | awk '$2 == "connected" {print $1}')
 }
 
 main(){
-  change_wallpaper
+    change_wallpaper
 }
 
 main
