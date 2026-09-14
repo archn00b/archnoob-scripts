@@ -1,13 +1,26 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 # INSTALLING ICON THEME
+
+install_icon() {
 git clone https://github.com/L4ki/Magna-Plasma-Themes.git
-sudo mv Magna-Plasma-Themes/'Magna Icons Themes'/Magna-Dark-Icons /usr/share/icons/
-sudo rm -rf Magna-Plasma-Themes
-sleep 1
+mv "Magna-Plasma-Themes/Magna Icons Themes"/* "$HOME/Icons"
 
-# USING XFCONF-QUERY TO ADJUST DEFAULT THEME
-icon=/Net/IconThemeName
-iconname="Magna-Dark-Icons"                                
+sleep 2
 
-xfconf-query -c xsettings -p $icon -s $iconname
+# USING XFCONF-QUERY TO ADJUST DEFAULT ICON THEME
+icon="/Net/IconThemeName"
+iconname="Magna-Glassy-Dark-Icons"
+
+xfconf-query \
+    --channel xsettings \
+    --property "$icon" \
+    --create \
+    --type string \
+    --set "$iconname"
+
+
+}
+
+install_icon
+
