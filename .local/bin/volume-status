@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+output=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+
+volume=$(awk '{print int($2 * 100)}' <<< "$output")
+
+if [[ "$output" == *"[MUTED]"* ]]; then
+    echo "󰖁 $volume%"
+elif (( volume == 0 )); then
+    echo "󰕿 $volume%"
+elif (( volume < 50 )); then
+    echo "󰖀 $volume%"
+else
+    echo "󰕾 $volume%"
+fi

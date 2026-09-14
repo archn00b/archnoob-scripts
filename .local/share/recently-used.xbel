@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/install-desktop/install-desktop.sh" added="2026-09-11T18:37:30.337416Z" modified="2026-09-12T15:08:35.724137Z" visited="2026-09-11T18:37:30.337416Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T15:07:46.080573Z" count="6"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T15:08:35.724136Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.bashrc" added="2026-09-11T18:40:11.174189Z" modified="2026-09-11T19:16:36.026952Z" visited="2026-09-11T18:40:11.174190Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 10:28;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-11T19:16:36.026951Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/install-desktop/test1.sh" added="2026-09-11T18:42:17.405221Z" modified="2026-09-11T19:37:01.728542Z" visited="2026-09-11T18:42:17.405222Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-11T19:03:09.486998Z" count="2"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-11T19:37:01.728541Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/add-repo/addrepo.sh" added="2026-09-11T18:43:26.909807Z" modified="2026-09-11T19:37:07.570810Z" visited="2026-09-11T18:43:26.909807Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-11T18:46:16.818135Z" count="2"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-11T19:37:07.570807Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/pkg_install/pkg_install.sh" added="2026-09-11T18:52:31.047231Z" modified="2026-09-11T18:52:48.283808Z" visited="2026-09-11T18:52:31.047231Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-11T18:52:41.661863Z" count="2"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-11T18:52:48.283807Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/archnoob-desktop/build_iso.sh" added="2026-09-11T18:53:36.899813Z" modified="2026-09-12T03:16:06.742249Z" visited="2026-09-11T18:53:36.899813Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-11T20:10:02.719316Z" count="2"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T03:16:06.742247Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/install-desktop/install-desktop%20(copy%201).sh" added="2026-09-11T19:02:43.098778Z" modified="2026-09-11T19:38:59.549886Z" visited="2026-09-11T19:02:43.098778Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-11T19:37:44.931221Z" count="2"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-11T19:38:59.549884Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/install-terminal/install-terminal" added="2026-09-11T19:05:00.609831Z" modified="2026-09-11T19:37:06.230880Z" visited="2026-09-11T19:05:00.609831Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-11T19:28:55.785601Z" count="4"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-11T19:37:06.230879Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/archnoob-desktop/.bashrc" added="2026-09-11T19:17:22.991420Z" modified="2026-09-11T19:17:35.569061Z" visited="2026-09-11T19:17:22.991420Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 11:0;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-11T19:17:35.569060Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/git-credentials.sh" added="2026-09-11T19:31:31.159013Z" modified="2026-09-12T22:31:33.747533Z" visited="2026-09-11T19:31:31.159013Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T15:03:25.682139Z" count="3"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T22:31:33.747532Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/archnoob-sddm/sddm.sh" added="2026-09-11T19:34:52.201425Z" modified="2026-09-11T19:58:12.013172Z" visited="2026-09-11T19:34:52.201426Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-11T19:39:20.563512Z" count="2"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-11T19:58:12.013171Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/change-wallpaper/change-wallpaper.sh" added="2026-09-11T19:59:03.115556Z" modified="2026-09-12T22:31:35.587315Z" visited="2026-09-11T19:59:03.115557Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T05:49:20.272635Z" count="14"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T22:31:35.587313Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/README.md" added="2026-09-11T20:01:23.015487Z" modified="2026-09-11T20:01:25.281382Z" visited="2026-09-11T20:01:23.015487Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 0:0;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-11T20:01:25.281380Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/.config/i3/config" added="2026-09-11T20:06:51.510245Z" modified="2026-09-11T20:07:52.358909Z" visited="2026-09-11T20:06:51.510246Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 0:0;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-11T20:07:52.358907Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/archnoob-desktop/README.md" added="2026-09-11T20:09:43.251587Z" modified="2026-09-11T20:09:57.149304Z" visited="2026-09-11T20:09:43.251587Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 0:0;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-11T20:09:57.149302Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/alacritty/alacritty.toml" added="2026-09-12T00:01:08.338548Z" modified="2026-09-13T14:47:34.772721Z" visited="2026-09-12T00:01:08.338548Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 15:0;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/toml"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-12T00:02:00.208788Z" count="2"/>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-13T14:47:34.772719Z" count="8"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T03:34:00.286792Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/script-template/script_template.sh" added="2026-09-12T02:16:45.771205Z" modified="2026-09-12T03:16:02.518561Z" visited="2026-09-12T02:16:45.771206Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T03:16:02.518560Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/change-wallpaper/wallpaper_change.sh" added="2026-09-12T03:28:40.804639Z" modified="2026-09-12T04:35:39.974948Z" visited="2026-09-12T03:28:40.804640Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T04:12:47.521451Z" count="3"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T04:35:39.974947Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/0103.jpg" added="2026-09-12T03:43:40.555010Z" modified="2026-09-12T03:43:40.555013Z" visited="2026-09-12T03:43:40.555011Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T03:43:40.555012Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/0011.jpg" added="2026-09-12T03:45:24.310418Z" modified="2026-09-12T04:16:01.570792Z" visited="2026-09-12T03:45:24.310418Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T04:16:01.570788Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/change-wallpaper/paper_change.sh" added="2026-09-12T03:53:59.304027Z" modified="2026-09-12T03:55:29.210634Z" visited="2026-09-12T03:53:59.304027Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T03:55:29.210633Z" count="2"/>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T03:55:10.906372Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/0124.jpg" added="2026-09-12T03:58:21.140626Z" modified="2026-09-12T03:58:21.140628Z" visited="2026-09-12T03:58:21.140627Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T03:58:21.140627Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/0253.jpg" added="2026-09-12T03:59:13.885661Z" modified="2026-09-12T03:59:13.885665Z" visited="2026-09-12T03:59:13.885661Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T03:59:13.885662Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/0100.jpg" added="2026-09-12T03:59:50.017820Z" modified="2026-09-12T03:59:50.017821Z" visited="2026-09-12T03:59:50.017820Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T03:59:50.017820Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/0142.jpg" added="2026-09-12T04:14:23.454222Z" modified="2026-09-12T04:14:23.454224Z" visited="2026-09-12T04:14:23.454222Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T04:14:23.454223Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/0029.jpg" added="2026-09-12T04:19:50.401486Z" modified="2026-09-12T04:28:05.052718Z" visited="2026-09-12T04:19:50.401486Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T04:28:05.052717Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/0002.jpg" added="2026-09-12T04:22:48.470241Z" modified="2026-09-12T04:28:18.928014Z" visited="2026-09-12T04:22:48.470241Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T04:28:18.928012Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/5.jpg" added="2026-09-12T04:33:47.478586Z" modified="2026-09-12T04:33:47.478589Z" visited="2026-09-12T04:33:47.478587Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T04:33:47.478587Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/4.jpg" added="2026-09-12T04:34:07.504906Z" modified="2026-09-12T04:34:52.968409Z" visited="2026-09-12T04:34:07.504907Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T04:34:15.403853Z" count="2"/>
+          <bookmark:application name="ristretto" exec="&apos;ristretto %u&apos;" modified="2026-09-12T04:34:52.968407Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/background/1.jpg" added="2026-09-12T04:36:31.680459Z" modified="2026-09-12T04:36:31.680461Z" visited="2026-09-12T04:36:31.680459Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="ristretto" exec="&apos;ristretto %u&apos;" modified="2026-09-12T04:36:31.680460Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/change-wallpaper/select-wallpaper.sh" added="2026-09-12T05:22:02.274036Z" modified="2026-09-12T05:42:17.092640Z" visited="2026-09-12T05:22:02.274037Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T05:42:17.092640Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/change-wallpaper/change-wall.sh" added="2026-09-12T05:42:17.092626Z" modified="2026-09-12T05:42:17.092628Z" visited="2026-09-12T05:42:17.092626Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T05:42:17.092627Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/wallpapers/.git/config" added="2026-09-12T05:58:31.544581Z" modified="2026-09-12T05:58:39.304445Z" visited="2026-09-12T05:58:31.544581Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 0:0;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-12T05:58:39.304443Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/Downloads" added="2026-09-12T06:40:31.519409Z" modified="2026-09-12T06:40:31.523911Z" visited="2026-09-12T06:40:31.519410Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="com.google.Chrome" exec="&apos;gio open %u&apos;" modified="2026-09-12T06:40:31.519410Z" count="1"/>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2026-09-12T06:40:31.523910Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/Downloads/Why%20Did%20I%20Get%20Married%20Again%20(2026)%20%5B1080p%5D%20%5BWEBRip%5D%20%5B5.1%5D%20%5BYTS.GG%20-%20YTS.BZ%5D/Why.Did.I.Get.Married.Again.2026.1080p.WEBRip.x264.AAC5.1-%5BYTS.GG%20-%20YTS.BZ%5D.mp4" added="2026-09-12T06:48:18.177526Z" modified="2026-09-12T15:18:06.485301Z" visited="2026-09-12T06:48:18.177526Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="video/mp4"/>
+        <bookmark:applications>
+          <bookmark:application name="vlc" exec="&apos;vlc %u&apos;" modified="2026-09-12T15:18:06.485300Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/archnoob-sddm/install-sddm.sh" added="2026-09-12T15:09:52.321748Z" modified="2026-09-12T22:31:31.258199Z" visited="2026-09-12T15:09:52.321748Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T15:09:52.321749Z" count="1"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T22:31:31.258197Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/dmenu-player/dmenu-player.sh" added="2026-09-12T15:10:45.694071Z" modified="2026-09-14T17:04:27.804816Z" visited="2026-09-12T15:10:45.694072Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-14T17:04:27.804815Z" count="4"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T22:31:29.622517Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/dmenu-player/dmenu-player2.sh" added="2026-09-12T15:10:54.296135Z" modified="2026-09-12T22:31:28.672554Z" visited="2026-09-12T15:10:54.296135Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T15:10:54.296136Z" count="1"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T22:31:28.672552Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/format-disk/format_disk.sh" added="2026-09-12T15:11:21.134548Z" modified="2026-09-12T22:31:27.490911Z" visited="2026-09-12T15:11:21.134549Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T15:11:21.134549Z" count="1"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T22:31:27.490909Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/02-install-terminal/install-terminal" added="2026-09-12T15:13:40.734778Z" modified="2026-09-12T22:31:26.267582Z" visited="2026-09-12T15:13:40.734778Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T15:13:40.734779Z" count="1"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T22:31:26.267581Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/GPU-Driver/driver-detect.sh" added="2026-09-12T22:29:44.113764Z" modified="2026-09-12T23:02:22.608694Z" visited="2026-09-12T22:29:44.113764Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T22:29:44.113765Z" count="1"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T23:02:22.608693Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/wipesig/wipe-sig.sh" added="2026-09-12T22:31:32.607726Z" modified="2026-09-12T22:31:32.607730Z" visited="2026-09-12T22:31:32.607727Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T22:31:32.607728Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/archnoob-scripts/GPU-Driver/README.md" added="2026-09-12T22:35:17.036294Z" modified="2026-09-12T22:40:18.865061Z" visited="2026-09-12T22:35:17.036294Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 185:0;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-12T22:40:18.865058Z" count="4"/>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2026-09-12T22:35:28.284673Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/i3/config" added="2026-09-12T22:47:07.880953Z" modified="2026-09-14T02:18:26.777171Z" visited="2026-09-12T22:47:07.880953Z">
+    <desc>Language: ; Encoding: UTF-8; Cursor: 34:24;</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2026-09-12T22:53:45.623814Z" count="4"/>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-14T02:18:26.777170Z" count="20"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T03:34:07.543285Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/i3/i3" added="2026-09-12T23:02:19.573898Z" modified="2026-09-12T23:02:19.573900Z" visited="2026-09-12T23:02:19.573898Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-12T23:02:19.573899Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/gtk-3.0/settings.ini" added="2026-09-12T23:42:36.971679Z" modified="2026-09-13T01:20:47.677133Z" visited="2026-09-12T23:42:36.971680Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-13T01:20:37.533748Z" count="2"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T01:20:47.677132Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/i3status/config" added="2026-09-13T00:20:28.512704Z" modified="2026-09-13T00:20:28.512706Z" visited="2026-09-13T00:20:28.512705Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T00:20:28.512705Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/i3status/config.conf" added="2026-09-13T00:20:44.810877Z" modified="2026-09-13T02:59:29.312694Z" visited="2026-09-13T00:20:44.810878Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-13T00:39:31.521511Z" count="2"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T02:59:29.312693Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.local/bin/i3status-wrapper" added="2026-09-13T01:33:19.604117Z" modified="2026-09-13T04:45:46.833815Z" visited="2026-09-13T01:33:19.604118Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T04:45:46.833814Z" count="4"/>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-13T03:52:27.335531Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.local/bin/i3status-gpu" added="2026-09-13T01:33:20.889351Z" modified="2026-09-13T01:33:20.889354Z" visited="2026-09-13T01:33:20.889352Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T01:33:20.889352Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.local/bin/volume-status" added="2026-09-13T01:33:24.539682Z" modified="2026-09-13T01:33:24.539685Z" visited="2026-09-13T01:33:24.539683Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T01:33:24.539684Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.local/src/dmenu/config.h" added="2026-09-13T01:33:25.499820Z" modified="2026-09-13T01:33:25.499823Z" visited="2026-09-13T01:33:25.499821Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-chdr"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T01:33:25.499821Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/i3/colors.conf" added="2026-09-13T03:01:50.562406Z" modified="2026-09-13T03:54:15.340949Z" visited="2026-09-13T03:01:50.562406Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-13T03:54:15.340948Z" count="4"/>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T03:42:35.096147Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/i3/bar.conf" added="2026-09-13T03:40:47.882219Z" modified="2026-09-13T03:40:47.882222Z" visited="2026-09-13T03:40:47.882220Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T03:40:47.882221Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.config/i3/colors" added="2026-09-13T04:10:01.381957Z" modified="2026-09-13T04:10:01.381959Z" visited="2026-09-13T04:10:01.381957Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T04:10:01.381958Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.ICEauthority" added="2026-09-13T04:45:31.709628Z" modified="2026-09-13T04:45:33.817437Z" visited="2026-09-13T04:45:31.709628Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-zerosize"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-13T04:45:33.817436Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/Jellyfin/Movies" added="2026-09-13T12:44:26.919056Z" modified="2026-09-14T01:45:59.271397Z" visited="2026-09-13T12:44:26.919056Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="com.google.Chrome" exec="&apos;gio open %u&apos;" modified="2026-09-14T01:45:59.266853Z" count="5"/>
+          <bookmark:application name="xdg-desktop-portal-gtk" exec="&apos;xdg-desktop-portal-gtk %u&apos;" modified="2026-09-14T01:45:59.271396Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.local/bin/rename-movies" added="2026-09-14T17:07:59.473900Z" modified="2026-09-14T17:07:59.473902Z" visited="2026-09-14T17:07:59.473900Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-14T17:07:59.473901Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/archn00b/.local/bin/movie-rename" added="2026-09-14T17:09:26.013952Z" modified="2026-09-14T17:16:46.555368Z" visited="2026-09-14T17:09:26.013952Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text" exec="&apos;sublime_text %u&apos;" modified="2026-09-14T17:09:26.013953Z" count="1"/>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-09-14T17:16:46.555364Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

@@ -1,0 +1,7 @@
+[stream-properties]
+Audio/Sink:node.name:auto_null={"channelMap":["FL", "FR"], "channelVolumes":[1.000000, 1.000000], "volume":1.000000, "mute":false}
+Input/Audio:application.id:org.PulseAudio.pavucontrol={"channelVolumes":[1.000000], "mute":false, "volume":1.000000, "channelMap":["MONO"]}
+Output/Audio:application.name:Firefox={"channelMap":["FL", "FR"], "channelVolumes":[1.000000, 1.000000], "mute":false, "volume":1.000000}
+Output/Audio:application.name:Google\sChrome={"volume":1.000000, "mute":false, "channelVolumes":[1.000000, 1.000000], "channelMap":["FL", "FR"]}
+Output/Audio:application.id:org.VideoLAN.VLC={"volume":1.000000, "channelVolumes":[0.421875, 0.421875], "channelMap":["FL", "FR"], "mute":false}
+Output/Audio:media.role:Notification={"mute":false, "channelVolumes":[1.000000, 1.000000], "volume":1.000000}

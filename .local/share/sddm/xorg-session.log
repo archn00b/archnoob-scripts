@@ -1,0 +1,40 @@
+/bin/sh: line 1: xss-lock: command not found
+/bin/sh: line 1: dex: command not found
+/bin/sh: line 1: volumeicon: command not found
+xrandr: unrecognized option '--leftof'
+Try 'xrandr --help' for more information.
+xrandr: cannot find mode 2460x1400
+i3status: trying to auto-detect output_format setting
+i3status: falling back to "none"
+[000055ed44fc25d0] main libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+[000055ed4503cde0] main playlist: playlist is empty
+[000055ed4509c180] glconv_vaapi_x11 gl error: vaInitialize: unknown libva error
+[000055ed4509c180] glconv_vaapi_drm gl error: vaInitialize: unknown libva error
+libva error: vaGetDriverNames() failed with operation failed
+[000055ed4509c180] glconv_vaapi_drm gl error: vaInitialize: operation failed
+[00007fbaf0c189b0] avcodec decoder: Using NVIDIA VDPAU Driver Shared Library  580.178.04  Tue Jul  7 12:00:51 UTC 2026 for hardware decoding
+[00007fbaf0c189b0] main decoder error: Timestamp conversion failed (delay 1000000, buffering 100000, bound 9000000)
+[00007fbaf0c189b0] main decoder error: Could not convert timestamp 343721985 for FFmpeg
+[00007fbaf0c189b0] main decoder error: Timestamp conversion failed (delay 1000000, buffering 100000, bound 9000000)
+[00007fbaf0c189b0] main decoder error: Could not convert timestamp 189771593 for FFmpeg
+[00007fbaf0c189b0] main decoder error: Timestamp conversion failed (delay 1000000, buffering 50469, bound 9000000)
+[00007fbaf0c189b0] main decoder error: Could not convert timestamp 375402375 for FFmpeg
+MESA-LOADER: failed to open dri: /usr/lib/gbm/dri_gbm.so: cannot open shared object file: Permission denied (search paths /usr/lib/gbm, suffix _gbm)
+Created TensorFlow Lite XNNPACK delegate for CPU.
+[4101:4130:0914/125457.340982:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+Created TensorFlow Lite XNNPACK delegate for CPU.
+Fontconfig error: Cannot load default config file: File not found
+[4101:4130:0914/125521.145881:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[5142:1:0914/125553.224626:ERROR:third_party/puffin/src/puffpatch.cc:122] Failed to create a temporary file for memory-mapping: Operation not permitted (1)
+[5142:1:0914/125553.228225:ERROR:third_party/puffin/src/puffpatch.cc:122] Failed to create a temporary file for memory-mapping: Operation not permitted (1)
+[4101:4130:0914/125613.730301:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+MESA-LOADER: failed to open dri: /usr/lib/gbm/dri_gbm.so: cannot open shared object file: Permission denied (search paths /usr/lib/gbm, suffix _gbm)
+Created TensorFlow Lite XNNPACK delegate for CPU.
+Created TensorFlow Lite XNNPACK delegate for CPU.
+[30998:31026:0914/130511.280954:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[30998:31026:0914/130541.143755:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[30998:30998:0914/130600.536877:ERROR:ui/gfx/x/atom_cache.cc:236] Add application/vnd.portal.filetransfer to kAtomsToCache
+[30998:30998:0914/130600.536912:ERROR:ui/gfx/x/atom_cache.cc:236] Add application/vnd.portal.files to kAtomsToCache
+[30998:31026:0914/130623.829624:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[30998:31026:0914/130813.820812:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[30998:31026:0914/131113.196327:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT

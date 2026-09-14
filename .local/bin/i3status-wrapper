@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+i3status -c ~/.config/i3status/config.conf | while read -r line
+do
+    gpu=$(~/.local/bin/i3status-gpu)
+    echo "$gpu | $line  "
+done
